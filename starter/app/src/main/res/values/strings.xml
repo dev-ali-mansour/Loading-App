@@ -12,4 +12,6 @@
     <string name="button_loading">We are loading </string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="ok_button_description">OK Button: Return back to main screen</string>
+    <string name="loading_message">Waiting for downloading</string>
+    <string name="completed_message">Download Completed</string>
 </resources>
