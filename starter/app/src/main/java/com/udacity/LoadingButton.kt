@@ -9,6 +9,7 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
+import com.udacity.util.ButtonState
 import java.util.*
 import kotlin.properties.Delegates
 
@@ -26,7 +27,7 @@ class LoadingButton @JvmOverloads constructor(
     private var mBackgroundColor = R.attr.backgroundColor
     private var mProgress = 0f
 
-    private var buttonState: ButtonState by Delegates.observable(ButtonState.Completed) { p, old, new ->
+    private var buttonState: ButtonState by Delegates.observable(ButtonState.Completed) { _, _, new ->
         when (new) {
             ButtonState.Loading -> {
                 setText(context.getString(R.string.loading_message))
@@ -34,12 +35,12 @@ class LoadingButton @JvmOverloads constructor(
                 valueAnimator = ValueAnimator.ofFloat(0f, 1f).apply {
                     duration = 3000
                     repeatCount = ValueAnimator.INFINITE
-                    repeatMode = ValueAnimator.REVERSE
 
                     addUpdateListener {
                         mProgress = animatedValue as Float
                         invalidate()
                     }
+
                     start()
                 }
                 this.isEnabled = false
@@ -59,12 +60,12 @@ class LoadingButton @JvmOverloads constructor(
     }
 
     private val bkgPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = R.color.colorPrimary.toColor()
+         color = R.color.colorPrimary.toColor()
     }
 
     private val inProgressBkgPaint = Paint().apply {
         flags = Paint.ANTI_ALIAS_FLAG
-        color = R.color.colorPrimaryDark.toColor()
+         color = R.color.colorPrimaryDark.toColor()
     }
 
     private val inProgressArcPaint = Paint().apply {
@@ -75,7 +76,7 @@ class LoadingButton @JvmOverloads constructor(
     private val textPaint = Paint().apply {
         flags = Paint.ANTI_ALIAS_FLAG
         color = Color.WHITE
-        textSize = 60.0f
+        textSize = 45.0f
         style = Paint.Style.FILL
         textAlign = Paint.Align.CENTER
     }
@@ -88,7 +89,7 @@ class LoadingButton @JvmOverloads constructor(
                 mAllCaps = getBoolean(R.styleable.LoadingButton_textAllCaps, true)
                 val text = getString(R.styleable.LoadingButton_text)
                 text?.let { mText = if (mAllCaps) it.uppercase(Locale.getDefault()) else it }
-                mBackgroundColor = R.styleable.LoadingButton_backgroundColor.toColor()
+                mBackgroundColor = R.color.colorPrimary.toColor()
             } finally {
                 recycle()
             }

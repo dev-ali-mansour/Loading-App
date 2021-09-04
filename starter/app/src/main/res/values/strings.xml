@@ -12,6 +12,21 @@
     <string name="button_loading">We are loading </string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="ok_button_description">OK Button: Return back to main screen</string>
-    <string name="loading_message">Waiting for downloading</string>
+    <string name="loading_message">Download in progress</string>
     <string name="completed_message">Download Completed</string>
+    <string name="downloading_channel_name">Downloading</string>
+    <string name="glide_text">Glide - Image Loading Library by BumpTech</string>
+    <string name="load_app_text">LoadApp - Current repository by Udacity</string>
+    <string name="retrofit_text">Retrofit - Type-safe HTTP client for Android and Java by Square, Inc.</string>
+    <string name="glideRepoURL">https://github.com/bumptech/glide</string>
+    <string name="loadAppRepoURL">https://github.com/udacity/nd940-c3-advanced-android-programming-project-starter</string>
+    <string name="retrofitRepoURL">https://github.com/square/retrofit</string>
+    <string name="download_image">Cloud download image</string>
+    <string name="download_complete">Download Complete</string>
+    <string name="downloading_channel_id">downloading</string>
+    <string name="check_status">Check the status</string>
+    <string name="file_name_title">File Name:</string>
+    <string name="status_title">Status:</string>
+    <string name="no_repo_selected_message">Please choose file first to download!</string>
+    <string name="no_network_alert">Please connect your device to the einternet to start downloading</string>
 </resources>
