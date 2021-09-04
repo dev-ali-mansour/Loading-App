@@ -7,4 +7,5 @@
     <color name="colorStatusLoading">#283789</color>
     <color name="colorStatusCompleted">#3F51B5</color>
     <color name="colorBoxBackground">#10414d</color>
+    <color name="colorDownloadImage">#9c4bff</color>
 </resources>

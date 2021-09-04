@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_layout"
@@ -8,12 +8,14 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
 
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    app:layoutDescription="@xml/content_main_scene">
 
     <FrameLayout
         android:id="@+id/image_frame"
         android:layout_width="0dp"
         android:layout_height="180dp"
+        android:alpha="0.0"
         android:background="@drawable/frame_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +33,8 @@
         app:layout_constraintTop_toTopOf="@+id/image_frame"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_baseline_cloud_download_24"
-        app:tint="#9c4bff" />
+        app:tint="@color/colorDownloadImage"
+        tools:ignore="ImageContrastCheck" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -80,4 +83,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:text="Download" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

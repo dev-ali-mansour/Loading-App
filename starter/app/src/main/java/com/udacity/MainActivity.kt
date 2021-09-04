@@ -58,9 +58,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            loadingButton.setOnClickListener {
-                download()
-            }
+            loadingButton.setOnClickListener { download() }
         }
     }
 
@@ -110,6 +108,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun download() {
         binding.contentMain.loadingButton.setState(ButtonState.Clicked)
+
         val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
         val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
@@ -126,7 +125,11 @@ class MainActivity : AppCompatActivity() {
                 applicationContext,
                 NotificationManager::class.java
             ) as NotificationManager
-            binding.contentMain.loadingButton.setState(ButtonState.Loading)
+            binding.contentMain.apply {
+                mainLayout.transitionToEnd()
+                mainLayout.transitionToStart()
+                loadingButton.setState(ButtonState.Loading)
+            }
 
             val request = DownloadManager.Request(Uri.parse(url))
                 .setTitle(getString(R.string.app_name))
@@ -143,7 +146,9 @@ class MainActivity : AppCompatActivity() {
             downloadID =
                 downloadManager.enqueue(request)// enqueue puts the download request in the queue.
         } ?: run {
-            binding.contentMain.loadingButton.setState(ButtonState.Completed)
+            binding.contentMain.apply {
+                loadingButton.setState(ButtonState.Completed)
+            }
             Toast.makeText(
                 this,
                 getString(R.string.no_repo_selected_message),
